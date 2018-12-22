@@ -1,0 +1,8 @@
+import { AboutComponent } from './about/about.component';
+import { HomeComponent } from './home/home.component';
+import {Routes} from '@angular/router'
+
+export const ROUTES: Routes = [
+    {path: '', component: HomeComponent}, //Component principal quando não tiver informação na URL
+    {path: 'about', component: AboutComponent}
+]
