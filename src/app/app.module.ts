@@ -1,11 +1,11 @@
 import { ShoppingCartService } from './restaurants/restaurant-detail/shopping-cart/shopping-cart.service';
 import { RestaurantsService } from './restaurants/restaurants.service';
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, LOCALE_ID } from '@angular/core';
 import { HttpModule } from '@angular/http';
 import { RouterModule } from '@angular/router';
 
-import {ROUTES} from './app.routes'
+import { ROUTES } from './app.routes'
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
@@ -38,7 +38,7 @@ import { ReviewsComponent } from './restaurants/restaurant-detail/reviews/review
     HttpModule,
     RouterModule.forRoot(ROUTES)
   ],
-  providers: [RestaurantsService, ShoppingCartService],
+  providers: [RestaurantsService, ShoppingCartService, { provide: LOCALE_ID, useValue: 'pt-BR' }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

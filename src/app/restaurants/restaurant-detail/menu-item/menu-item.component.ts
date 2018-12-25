@@ -17,6 +17,7 @@ export class MenuItemComponent implements OnInit {
 
   //O component parent pode assicionar uma associação e tratar isso
   emitAddEvent() {
+    console.log(" 2 ",this.menuItem)
     this.add.emit(this.menuItem);
   }
 
