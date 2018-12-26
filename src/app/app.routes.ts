@@ -1,3 +1,4 @@
+import { OrderComponent } from './order/order.component';
 import { ReviewsComponent } from './restaurants/restaurant-detail/reviews/reviews.component';
 import { MenuComponent } from './restaurants/restaurant-detail/menu/menu.component';
 import { RestaurantsComponent } from './restaurants/restaurants.component';
@@ -10,6 +11,7 @@ export const ROUTES: Routes = [
     { path: '', component: HomeComponent }, //Component principal quando não tiver informação na URL
     { path: 'about', component: AboutComponent },
     { path: 'restaurants', component: RestaurantsComponent },
+    { path: 'order', component: OrderComponent },
     {
         path: 'restaurants/:id', component: RestaurantDetailComponent,
         children: [
