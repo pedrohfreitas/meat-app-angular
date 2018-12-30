@@ -1,3 +1,4 @@
+import { NotFoundComponent } from './not-found/not-found.component';
 import { ReviewsComponent } from './restaurants/restaurant-detail/reviews/reviews.component';
 import { MenuComponent } from './restaurants/restaurant-detail/menu/menu.component';
 import { RestaurantsComponent } from './restaurants/restaurants.component';
@@ -19,5 +20,7 @@ export const ROUTES: Routes = [
             { path: 'menu', component: MenuComponent },
             { path: 'reviews', component: ReviewsComponent }
         ]
-    } 
+    },
+    { path: '**', component: NotFoundComponent },//WildCard Route - Sempre ficar no final
+
 ]
