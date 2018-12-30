@@ -6,12 +6,14 @@ import { AboutComponent } from './about/about.component';
 import { HomeComponent } from './home/home.component';
 import { Routes } from '@angular/router'
 import { RestaurantDetailComponent } from './restaurants/restaurant-detail/restaurant-detail.component';
+import { OrderSumaryComponent } from './order/order-sumary/order-sumary.component';
 
 export const ROUTES: Routes = [
     { path: '', component: HomeComponent }, //Component principal quando não tiver informação na URL
     { path: 'about', component: AboutComponent },
     { path: 'restaurants', component: RestaurantsComponent },
     { path: 'order', component: OrderComponent },
+    { path: 'order-sumary', component: OrderSumaryComponent },
     {
         path: 'restaurants/:id', component: RestaurantDetailComponent,
         children: [
@@ -19,5 +21,5 @@ export const ROUTES: Routes = [
             { path: 'menu', component: MenuComponent },
             { path: 'reviews', component: ReviewsComponent }
         ]
-    }
+    } 
 ]
