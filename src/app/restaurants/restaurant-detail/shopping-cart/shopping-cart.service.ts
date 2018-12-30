@@ -1,9 +1,16 @@
+import { NotificationService } from './../../../shared/messages/notification.service';
 import { CartItem } from "./cart-item.model";
 import { MenuItem } from "../menu-item/menu-item.model";
-import { ValueTransformer } from "@angular/compiler/src/util";
+import { Injectable } from "@angular/core";
 
+
+@Injectable()//TODO SERVIÇO QUE VAI RECEBER ALGO PRECISA SER MARCADO COM INJECTABLE()
 export class ShoppingCartService {
    
+    constructor(private notificationService: NotificationService){
+
+    }
+
     items: CartItem[] = [];
 
     clear() {
@@ -21,6 +28,7 @@ export class ShoppingCartService {
         } else {
             this.items.push(new CartItem(item));
         }
+        this.notificationService.notify(`Você adicionou um item ${item.name}`)
     }
 
     increaseQty(item: CartItem): any {
@@ -36,5 +44,7 @@ export class ShoppingCartService {
 
     removeItem(item: CartItem) {
         this.items.splice(this.items.indexOf(item), 1)
+        this.notificationService.notify(`Você removeu um item ${item.menuItem.name}`)
+
     }
 }
