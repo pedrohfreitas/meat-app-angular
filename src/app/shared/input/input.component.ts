@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, ContentChild, AfterContentInit } from '@angular/core';
-import { NgModel } from '@angular/forms'
+import { NgModel, FormControlName } from '@angular/forms'
 
 @Component({
   selector: 'mt-input-container',
@@ -11,7 +11,9 @@ export class InputComponent implements OnInit, AfterContentInit {
   @Input() label: string;
   @Input() errorMessage: string;
 
+  // O Angular inejta uma referencia de um NgModel ou FormControlName nesta variavel
   @ContentChild(NgModel) model: NgModel
+  @ContentChild(FormControlName) control: FormControlName;
 
   constructor() { }
 
@@ -20,9 +22,9 @@ export class InputComponent implements OnInit, AfterContentInit {
 
   //Chamado quando o conteúdo for definido
   ngAfterContentInit() {
-    this.input = this.model;
+    this.input = this.model || this.control;
     if (this.input === undefined) {
-      throw new Error('Esse componente precisa ser usado com usa diretiva NgModel');
+      throw new Error('Esse componente precisa ser usado com usa diretiva NgModel ou FormControlName');
     }
   }
 

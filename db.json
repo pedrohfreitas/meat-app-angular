@@ -468,6 +468,22 @@
         }
       ],
       "id": 6
+    },
+    {
+      "name": "Pedro Freitas",
+      "email": "teste@teste.com",
+      "emailConfirmation": "teste@teste.com",
+      "address": "rua nelson",
+      "number": "2131",
+      "optionalAddress": "casa",
+      "paymentOption": "DEB",
+      "orderItems": [
+        {
+          "quantity": 1,
+          "menuId": "sunday"
+        }
+      ],
+      "id": 7
     }
   ]
 }
