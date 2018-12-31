@@ -1,7 +1,7 @@
 import { SharedModule } from './shared/shared.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, LOCALE_ID } from '@angular/core';
-import { HttpModule } from '@angular/http';
+import { HttpClientModule } from '@angular/common/http';
 import { RouterModule, PreloadAllModules } from '@angular/router';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
@@ -39,7 +39,7 @@ import { LocationStrategy, HashLocationStrategy } from '@angular/common';
   imports: [
     BrowserAnimationsModule,
     BrowserModule,
-    HttpModule,
+    HttpClientModule,
     SharedModule.forRoot(),//Carrega os Modules mais os serviços 
     RouterModule.forRoot(ROUTES, {preloadingStrategy: PreloadAllModules})// preloadStrategy faz o carregamento dos modules em outr tread
   ],
