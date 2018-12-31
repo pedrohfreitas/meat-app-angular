@@ -1,4 +1,5 @@
-import { HttpClient } from '@angular/common/http';
+import { LoginService } from 'app/security/login/login.service';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { MEAT_API } from './../app.api';
 import { ShoppingCartService } from './../restaurants/restaurant-detail/shopping-cart/shopping-cart.service';
 import { Injectable } from "@angular/core";
@@ -10,7 +11,7 @@ import { Observable } from 'rxjs/Observable';
 export class OrderService {
 
 
-    constructor(private cartService: ShoppingCartService, private http: HttpClient) {
+    constructor(private cartService: ShoppingCartService, private http: HttpClient, private loginService: LoginService) {
 
     }
 
@@ -35,7 +36,13 @@ export class OrderService {
     }
 
     checkOrder(order: Order): Observable<string> {
-        return this.http.post<Order>(`${MEAT_API}/orders`, order)
+
+        let headers = new HttpHeaders();
+        if(this.loginService.isLoggedIn()){
+            headers = headers.set('Authorization',`bearer ${this.loginService.user.accessToken}`)
+        }
+
+        return this.http.post<Order>(`${MEAT_API}/orders`, order, {headers: headers})
             .map(order => order.id); //Para retornar apenas o ID
     }
 

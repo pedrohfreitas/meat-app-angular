@@ -26,7 +26,7 @@ A pasta beackend possuí uma aplicação node.
 
 ### Iniciando o serviço NODE
 
-`node backend/distserver`
+`node backend/dist/server`
 
 ### Iniciando o serviço NODE com o NODEMON
 

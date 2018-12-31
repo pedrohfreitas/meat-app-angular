@@ -20,6 +20,7 @@ import { ReviewsComponent } from './restaurants/restaurant-detail/reviews/review
 import { OrderSumaryComponent } from './order/order-sumary/order-sumary.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { LocationStrategy, HashLocationStrategy } from '@angular/common';
+import { LoginComponent } from './security/login/login.component';
 
 @NgModule({
   declarations: [
@@ -35,6 +36,7 @@ import { LocationStrategy, HashLocationStrategy } from '@angular/common';
     ReviewsComponent,
     OrderSumaryComponent,
     NotFoundComponent,
+    LoginComponent, 
   ],
   imports: [
     BrowserAnimationsModule,

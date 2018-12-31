@@ -10,6 +10,7 @@ export class InputComponent implements OnInit, AfterContentInit {
   input: any;
   @Input() label: string;
   @Input() errorMessage: string;
+  @Input() showTip: boolean = true;
 
   // O Angular inejta uma referencia de um NgModel ou FormControlName nesta variavel
   @ContentChild(NgModel) model: NgModel
