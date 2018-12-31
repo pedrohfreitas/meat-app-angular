@@ -16,10 +16,10 @@ export class RestaurantsService {
     }
 
     //Método chamado apenas quando alguém se escrever (subscribe)
-    restaurants(): Observable<Restaurant[]> {
+    restaurants(search?: string): Observable<Restaurant[]> {
         //O mapeamento é preciso pois o retorno Observable<response> retorna muita informação, por exemplo: O status code
         //Catch: sempre que um erro acontece, o Observable é fechado - é possível criar um outro observable retornando um erro ou outro tratamento
-        return this.http.get(`${MEAT_API}/restaurants`)
+        return this.http.get(`${MEAT_API}/restaurants`, {params: {q: search}})// o parametro q é de suporte do json-server para realizar a bsuca em qualquer atributo
             .map(response => response.json())
             .catch(ErrorHandler.handleError);
     }
