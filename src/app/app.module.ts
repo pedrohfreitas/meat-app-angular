@@ -19,6 +19,7 @@ import { MenuItemComponent } from './restaurants/restaurant-detail/menu-item/men
 import { ReviewsComponent } from './restaurants/restaurant-detail/reviews/reviews.component';
 import { OrderSumaryComponent } from './order/order-sumary/order-sumary.component';
 import { NotFoundComponent } from './not-found/not-found.component';
+import { LocationStrategy, HashLocationStrategy } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -42,7 +43,7 @@ import { NotFoundComponent } from './not-found/not-found.component';
     SharedModule.forRoot(),//Carrega os Modules mais os serviços 
     RouterModule.forRoot(ROUTES, {preloadingStrategy: PreloadAllModules})// preloadStrategy faz o carregamento dos modules em outr tread
   ],
-  providers: [{ provide: LOCALE_ID, useValue: 'pt-BR' }],
+  providers: [{provide: LocationStrategy, useClass: HashLocationStrategy},{ provide: LOCALE_ID, useValue: 'pt-BR' }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
