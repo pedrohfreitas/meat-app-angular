@@ -1,15 +1,13 @@
-import { CommonModule } from '@angular/common';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { LeaveOrderGuard } from 'app/order/leave-order.guard';
 import { SharedModule } from './../shared/shared.module';
 import { OrderComponent } from './order.component';
 import { DeliveryCostsComponent } from './delivery-costs/delivery-costs.component';
 import { NgModule } from "@angular/core";
 import { OrderItemsComponent } from './order-items/order-items.component';
 import { Routes, RouterModule } from '@angular/router';
-import { BrowserModule } from '@angular/platform-browser';
 
 const ROUTES: Routes = [
-    {path:'', component: OrderComponent}
+    {path:'', component: OrderComponent, canDeactivate: [LeaveOrderGuard]}
 ]
 
 @NgModule({
