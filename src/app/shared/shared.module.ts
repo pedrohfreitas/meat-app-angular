@@ -1,3 +1,4 @@
+import { AuthInterceptor } from './../security/auth.interceptor';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { InputComponent } from './input/input.component';
 import { NgModule, ModuleWithProviders } from "@angular/core";
@@ -13,6 +14,8 @@ import { LoginService } from 'app/security/login/login.service';
 import { LoggedInGuard } from 'app/security/loggedin.guard';
 import { LeaveOrderGuard } from 'app/order/leave-order.guard';
 
+import { HTTP_INTERCEPTORS } from '@angular/common/http'
+
 @NgModule({
     declarations: [InputComponent, RadioComponent, RatingComponent, SnackbarComponent],
     imports: [CommonModule, FormsModule, ReactiveFormsModule],
@@ -26,7 +29,15 @@ export class SharedModule {
     static forRoot(): ModuleWithProviders {
         return {
             ngModule: SharedModule,
-            providers: [ShoppingCartService, OrderService, RestaurantsService, LoginService, NotificationService, LoggedInGuard, LeaveOrderGuard]
+            providers: [ShoppingCartService,
+                OrderService, 
+                RestaurantsService, 
+                LoginService, 
+                NotificationService, 
+                LoggedInGuard, 
+                LeaveOrderGuard,
+                {provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true}//multi siginifa que ele irá entrar na lista de todos os intercepetors
+            ]
         }
     }
 
